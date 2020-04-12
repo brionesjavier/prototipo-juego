@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="life" sid="101678508024557" static="0" type="number">170</variable>
+        <event-block sid="795408755322195">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="465398938545031" type="System">
+                    <param id="0" name="Interval (seconds)">2</param>
+                </condition>
+                <condition id="-1" name="Every tick" sid="813980668188154" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="8" name="Set enabled" sid="523932643504444" type="jugador">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-5" name="Set width" sid="215174204953330" type="BarraDeVida">
+                    <param id="0" name="Width">life</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="683430443099590">
+            <conditions>
+                <condition behavior="8Direction" id="0" name="Is moving" sid="834399071858557" type="jugador" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="822863642485682" type="jugador">
+                    <param id="0" name="Animation">&quot;caminar&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="114013106389532">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="171097755347652" type="Keyboard">
+                    <param id="0" name="Key">39</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="371831872579851" type="jugador">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="549247606334646">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="796339584150382" type="Keyboard">
+                    <param id="0" name="Key">37</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="890041127349947" type="jugador">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="672086511123278">
+            <conditions>
+                <condition id="-5" name="Compare width" sid="839694485245484" type="BarraDeVida">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Width">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="954322082420973" type="jugador">
+                    <param id="0" name="Animation">&quot;hurt&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="8Direction" id="8" name="Set enabled" sid="377594780009533" type="jugador">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="926760284673368" type="GameOver">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="757353729319588" type="BarraDeVida">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="315839794543212" type="jugador" />
+            </actions>
+        </event-block>
+        <event-group description="" sid="503358210918009" title="vehiculo">
+            <sub-events>
+                <event-block sid="543414048221133">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="382710981360184" type="carpolice">
+                            <param id="0" name="Instance variable">camino</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;right&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="202925399391920" type="carpolice">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="793464944310991" type="carpolice">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action disabled="1" id="-15" name="Set visible" sid="481127918733457" type="carpolice">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="160726459242269">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="671885180343491" type="car">
+                            <param id="0" name="Instance variable">camino</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;right&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="793034951955088" type="car">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="471865583074983" type="car">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action disabled="1" id="-15" name="Set visible" sid="928908281711479" type="car">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="362106595519735">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="987932858412963" type="carpolice">
+                            <param id="0" name="Object">jugador</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="705800049739617" type="jugador">
+                            <param id="0" name="Animation">&quot;hurt&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="866759388466024" type="System">
+                            <param id="0" name="Variable">life</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="969029582354169" type="jugador">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">3.0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="406871781424890">
+                            <conditions>
+                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="778606761465906" type="jugador" />
+                            </conditions>
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="945509869454508">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="608768727197999" type="car">
+                            <param id="0" name="Object">jugador</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="380840895935041" type="jugador">
+                            <param id="0" name="Animation">&quot;hurt&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="843150906121829" type="System">
+                            <param id="0" name="Variable">life</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="877685958826932" type="jugador">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">3.0</param>
+                        </action>
+                        <action behavior="Platform" disabled="1" id="11" name="Set enabled" sid="910033001749866" type="car">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="971907258210036">
+                            <conditions>
+                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="897580840539708" type="jugador" />
+                            </conditions>
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="801440368215338">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="495024928976172" type="carpolice">
+                            <param id="0" name="Object">ordenesCar</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="746363932046189">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="410084717877261" type="carpolice">
+                                    <param id="0" name="Instance variable">camino</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;right&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="566196384407089" type="carpolice">
+                                    <param id="0" name="Instance variable">camino</param>
+                                    <param id="1" name="Value">&quot;right&quot;</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="598083344432557" type="carpolice">
+                                    <param id="0" name="Object">Sprite2</param>
+                                    <param id="1" name="Image point (optional)">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="738791406031303">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="342015024768286" type="car">
+                            <param id="0" name="Object">ordenesCar</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="121603072787031">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="537315079289980" type="car">
+                                    <param id="0" name="Instance variable">camino</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;right&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="261380692364351" type="car">
+                                    <param id="0" name="Instance variable">camino</param>
+                                    <param id="1" name="Value">&quot;right&quot;</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="321780768115114" type="car">
+                                    <param id="0" name="Object">Sprite2</param>
+                                    <param id="1" name="Image point (optional)">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="483593223699847">
+            <conditions />
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>
